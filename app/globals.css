@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+
+@theme inline {
+  --color-cream: #f3eedf;
+  --color-sand: #e6dcc3;
+  --color-forest: #0b3d2c;
+  --color-lime: #b8f36b;
+
+  --font-display : var(--font-fraunces);
+  --font-sans: var(--font-inter)
+  --font-mono : var(--font-jetbrains);
+}
+
+
+/* Marquee animation */
+
+@keyframes marquee{
+  to{
+    transform: translateX(-50%)
+  }
+
+}
+
+.marquee-track{
+    animation: marquee 35s linear infinite;
+  }
+
+
+  /* animations off -> respect that choice */
+
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{
+      animation: none;
+    }
+  }
