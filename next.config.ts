@@ -1,23 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    agentFeedback: true,
+  images: {
+    // next/image only loads images from hosts we explicitly allow.
+    // DummyJSON hosts all of its product photos on this domain.
+    // If you add Unsplash photos later, add { protocol: "https", hostname: "images.unsplash.com" }.
+    remotePatterns: [{ protocol: "https", hostname: "cdn.dummyjson.com" }],
   },
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
-  images:{
-    remotePatterns:[{protocol:"https", hostname: "cdn.dummyjson.com"}]
-  }
 };
 
 export default nextConfig;
